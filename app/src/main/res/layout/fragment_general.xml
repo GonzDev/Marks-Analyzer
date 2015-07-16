@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingRight="@dimen/main_horizontal_margin"
+        android:paddingLeft="@dimen/main_horizontal_margin"
+        android:paddingTop="@dimen/main_vertical_margin"
+        android:paddingBottom="@dimen/main_vertical_margin"
+        tools:context=".GeneralFragment" >
+
+        <TextView
+            android:id="@+id/tagSubject"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:gravity="center"
+            android:textSize="@dimen/title_Textsize"
+            android:textColor="@android:color/black"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tagContext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tagSubject"
+            android:gravity="center"
+            android:textSize="@dimen/subtitle_Textsize"
+            android:textColor="@android:color/black"/>
+
+        <TextView
+            android:id="@+id/tagDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tagContext"
+            android:gravity="center"
+            android:paddingBottom="@dimen/tags_LowDistance"
+            android:textSize="@dimen/subtitle_Textsize"
+            android:textColor="@android:color/black"/>
+
+        <TextView
+            android:id="@+id/tagTotal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tagDate"
+            android:paddingTop="@dimen/tags_HighDistance"
+            android:text="@string/total"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/tags_Textsize"/>
+
+        <TextView
+            android:id="@+id/total"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/tagTotal"
+            android:layout_toEndOf="@id/tagTotal"
+            android:layout_alignBaseline="@id/tagTotal"
+            android:paddingLeft="@dimen/tags_PaddingRight"
+            android:paddingStart="@dimen/tags_PaddingRight"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="@dimen/tags_Textsize"/>
+
+        <TextView
+            android:id="@+id/tagBlanks"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tagTotal"
+            android:paddingTop="@dimen/tags_LowDistance"
+            android:paddingBottom="@dimen/tags_LowDistance"
+            android:text="@string/blanks"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/tags_Textsize"/>
+
+        <TextView
+            android:id="@+id/blanks"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/tagBlanks"
+            android:layout_toEndOf="@id/tagBlanks"
+            android:layout_alignBaseline="@id/tagBlanks"
+            android:paddingLeft="@dimen/tags_PaddingRight"
+            android:paddingStart="@dimen/tags_PaddingRight"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="@dimen/tags_Textsize"/>
+
+        <View
+            android:id="@+id/separator1"
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/tagBlanks"
+            android:background="@android:color/holo_blue_light"/>
+
+        <TextView
+            android:id="@+id/tagPassed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/separator1"
+            android:paddingTop="@dimen/tags_LowDistance"
+            android:text="@string/passed"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/tags_Textsize"/>
+
+        <TextView
+            android:id="@+id/passed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/tagPassed"
+            android:layout_toEndOf="@id/tagPassed"
+            android:layout_alignBaseline="@id/tagPassed"
+            android:paddingLeft="@dimen/tags_PaddingRight"
+            android:paddingStart="@dimen/tags_PaddingRight"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="@dimen/tags_Textsize"/>
+
+        <TextView
+            android:id="@+id/tagFailed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tagPassed"
+            android:paddingTop="@dimen/tags_LowDistance"
+            android:text="@string/failed"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/tags_Textsize"/>
+
+        <TextView
+            android:id="@+id/failed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/tagFailed"
+            android:layout_toEndOf="@id/tagFailed"
+            android:layout_alignBaseline="@id/tagFailed"
+            android:paddingLeft="@dimen/tags_PaddingRight"
+            android:paddingStart="@dimen/tags_PaddingRight"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="@dimen/tags_Textsize"/>
+
+        <TextView
+            android:id="@+id/tagMean"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tagFailed"
+            android:paddingTop="@dimen/tags_LowDistance"
+            android:paddingBottom="@dimen/tags_LowDistance"
+            android:text="@string/mean"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/tags_Textsize"/>
+
+        <TextView
+            android:id="@+id/mean"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/tagMean"
+            android:layout_toEndOf="@id/tagMean"
+            android:layout_alignBaseline="@id/tagMean"
+            android:paddingLeft="@dimen/tags_PaddingRight"
+            android:paddingStart="@dimen/tags_PaddingRight"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="@dimen/tags_Textsize"/>
+
+        <View
+            android:id="@+id/separator2"
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/tagMean"
+            android:background="@android:color/holo_blue_light"/>
+
+        <TextView
+            android:id="@+id/tagBestMark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/separator2"
+            android:paddingTop="@dimen/tags_LowDistance"
+            android:text="@string/bestMark"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/tags_Textsize"/>
+
+        <TextView
+            android:id="@+id/bestMark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/tagBestMark"
+            android:layout_toEndOf="@id/tagBestMark"
+            android:layout_alignBaseline="@id/tagBestMark"
+            android:paddingLeft="@dimen/tags_PaddingRight"
+            android:paddingStart="@dimen/tags_PaddingRight"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="@dimen/tags_Textsize"/>
+
+        <TextView
+            android:id="@+id/tagWorstMark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tagBestMark"
+            android:paddingTop="@dimen/tags_LowDistance"
+            android:text="@string/worstMark"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/tags_Textsize"/>
+
+        <TextView
+            android:id="@+id/worstMark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/tagWorstMark"
+            android:layout_toEndOf="@id/tagWorstMark"
+            android:layout_alignBaseline="@id/tagWorstMark"
+            android:paddingLeft="@dimen/tags_PaddingRight"
+            android:paddingStart="@dimen/tags_PaddingRight"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="@dimen/tags_Textsize"/>
+
+    </RelativeLayout>
+
+</ScrollView>	

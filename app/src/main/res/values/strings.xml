@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Marks Analyzer</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="title_activity_opening">Activity Opening</string>
+    <string name="init">Initial animation activity</string>
+
+    <string name="title_activity_main">MainActivity</string>
+    <string name="dni">DNI</string>
+    <string name="pass">Clave</string>
+    <string name="url">Pega la url aquí</string>
+    <string name="buttonText">Empezar</string>
+    <string name="progressText">Cargando. Espera, por favor.</string>
+
+    <string name="tab1_title">GENERAL</string>
+    <string name="tab2_title">BUSCAR</string>
+
+    <string name="title_activity_report">ReportActivity</string>
+    <string name="subject">Asignatura: </string>
+    <string name="context">Contexto: </string>
+    <string name="date">Fecha: </string>
+    <string name="mean">Media: </string>
+    <string name="median">Mediana: </string>
+    <string name="low_percentile">Percentil 25: </string>
+    <string name="hig_percentile">Percentil 75: </string>
+    <string name="blanks">Notas en blanco: </string>
+    <string name="total">Total: </string>
+    <string name="passed">Aprobados: </string>
+    <string name="failed">Suspendidos: </string>
+    <string name="bestMark">Mejor nota: </string>
+    <string name="worstMark">Peor nota: </string>
+
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="search_fragment">Aquí irá el fragmento de búsqueda</string>
+
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>
