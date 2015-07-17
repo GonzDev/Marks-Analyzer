@@ -32,10 +32,6 @@
     <string name="bestMark">Mejor nota: </string>
     <string name="worstMark">Peor nota: </string>
 
-<!-- TODO: Remove or change this placeholder text -->
-    <string name="search_fragment">Aquí irá el fragmento de búsqueda</string>
-
-<!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="searchHint">Introduce nombre</string>
 
 </resources>

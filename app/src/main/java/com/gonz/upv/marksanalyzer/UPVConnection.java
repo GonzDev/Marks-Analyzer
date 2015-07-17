@@ -1,5 +1,10 @@
 package com.gonz.upv.marksanalyzer;
 
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
+
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.InputStreamReader;
@@ -12,11 +17,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.net.ssl.HttpsURLConnection;
-
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
 
 public class UPVConnection {
 	
@@ -93,18 +93,18 @@ public class UPVConnection {
 		BufferedReader br = 
 				new BufferedReader(new InputStreamReader(conn.getInputStream()));
 		String inputLine;
-		StringBuffer response = new StringBuffer();
- 
-		while ((inputLine = br.readLine()) != null)
-			response.append(inputLine);
+		String response = "";
+
+		while ((inputLine = br.readLine()) != null) {
+				response += inputLine;
+		}
 		
 		br.close();
  
 		// Get the response cookies
 		this.cookies = conn.getHeaderFields().get("Set-Cookie");
  
-		String encoded = new String(response.toString().getBytes(), "UTF-8");
-		return encoded;
+		return response;
  
 	}
 	 

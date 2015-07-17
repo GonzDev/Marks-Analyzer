@@ -6,6 +6,8 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.io.Serializable;
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 import java.util.HashMap;
 import java.util.LinkedList;
 
@@ -19,8 +21,18 @@ public class HTMLDataExtractor implements Serializable{
 		float mark;
 		
 		public Tuple(String n, float m) {
-			this.name = n;
+			this.name = decode(n);
 			this.mark = m;
+		}
+
+		private String decode(String s) {
+			String res = null;
+			try {
+				res = URLDecoder.decode(s, "ISO-8859-1");
+			} catch (UnsupportedEncodingException e) {
+				e.printStackTrace();
+			}
+			return res;
 		}
 
 		@Override
@@ -57,6 +69,8 @@ public class HTMLDataExtractor implements Serializable{
 		this.sortedList = new LinkedList<Tuple>();
 		this.map = new HashMap<String, Float>();
 		this.html = html;
+
+		System.out.println(html);
 		
 	}
 	
@@ -72,6 +86,8 @@ public class HTMLDataExtractor implements Serializable{
 	public String getMean() {	return Float.toString(mean);	}
 	public String getUpper() {	return Float.toString(sortedList.getFirst().mark);	}
 	public String getLower() {	return Float.toString(sortedList.getLast().mark); 	}
+
+	public HashMap<String,Float> getMap() {	return this.map;	}
 	
 	public void init() {
 	
@@ -149,7 +165,7 @@ public class HTMLDataExtractor implements Serializable{
 		System.out.println("PERCENTIL 75: " + q3 + "\n");
 		System.out.println("MEDIANA: " + median);
 		System.out.println("PERCENTIL 25: " + q1);
-		System.out.println("NOTA MÁS BAJA" + sortedList.getLast().mark+"\n");
+		System.out.println("NOTA MÁS BAJA: " + sortedList.getLast().mark+"\n");
 
 		System.out.println("\n10 MEJORES NOTAS:\n");
 		for (int i = 0; i < 10; i++)

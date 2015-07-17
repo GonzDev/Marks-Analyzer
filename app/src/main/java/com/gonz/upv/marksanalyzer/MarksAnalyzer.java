@@ -1,12 +1,13 @@
 package com.gonz.upv.marksanalyzer;
 
-import com.gonz.upv.marksanalyzer.ui.activity.ReportActivity;
-
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.os.Bundle;
 import android.widget.Button;
+
+import com.gonz.upv.marksanalyzer.ui.activity.ReportActivity;
 
 public class MarksAnalyzer extends AsyncTask<String, String, Integer> {
 	
@@ -81,16 +82,23 @@ public class MarksAnalyzer extends AsyncTask<String, String, Integer> {
 			b.setEnabled(true);
 		
 		Intent i = new Intent(activity, ReportActivity.class);
-		i.putExtra("subject", extractor.getSubject());
-		i.putExtra("context", extractor.getContext());
-		i.putExtra("date", extractor.getDate());
-		i.putExtra("total", extractor.getTotal());
-		i.putExtra("blanks", extractor.getBlanks());
-		i.putExtra("passed", extractor.getPassed());
-		i.putExtra("failed", extractor.getFailed());
-		i.putExtra("mean", extractor.getMean());
-		i.putExtra("best", extractor.getUpper());
-		i.putExtra("worst", extractor.getLower());
+		Bundle extras = new Bundle();
+
+		extras.putString("subject", extractor.getSubject());
+		extras.putString("context", extractor.getContext());
+		extras.putString("date", extractor.getDate());
+		extras.putString("total", extractor.getTotal());
+		extras.putString("blanks", extractor.getBlanks());
+		extras.putString("passed", extractor.getPassed());
+		extras.putString("failed", extractor.getFailed());
+		extras.putString("mean", extractor.getMean());
+		extras.putString("best", extractor.getUpper());
+		extras.putString("worst", extractor.getLower());
+
+		extras.putSerializable("map", extractor.getMap());
+
+		i.putExtras(extras);
+
 		activity.startActivity(i);		
 		
 	}
