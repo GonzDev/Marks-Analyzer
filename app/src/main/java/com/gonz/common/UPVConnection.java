@@ -1,4 +1,6 @@
-package com.gonz.upv.marksanalyzer;
+package com.gonz.common;
+
+import android.util.Log;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -19,8 +21,11 @@ import java.util.List;
 import javax.net.ssl.HttpsURLConnection;
 
 public class UPVConnection {
-	
+
+	private final String TAG = "UPVConnection";
+
 	private String dni, clau;
+	private String name;
 	
 	private List<String> cookies;
 	private HttpsURLConnection conn;
@@ -39,16 +44,19 @@ public class UPVConnection {
 			"https://intranet.upv.es/exp/aute_intranet";
 	private final String LOGON_URL = 
 			"https://intranet.upv.es/pls/soalu/est_intranet.Ni_portal_n?P_IDIOMA=c";
-	 
-	
+
 	public UPVConnection(String dni, String clau) {
 		this.dni = dni;
 		this.clau = clau;
+		this.name = "";
 		 
 		// Make sure cookies is turn on
 		CookieHandler.setDefault(new CookieManager());	 
 	}
 
+	public String getName() {
+		return this.name;
+	}
 
 	public int logon() throws Exception {
 		
@@ -87,16 +95,16 @@ public class UPVConnection {
 		
 		int responseCode = conn.getResponseCode();
 		
-		System.out.println("\nSending 'GET' request to URL : " + url);
-		System.out.println("Response Code : " + responseCode);
- 
-		BufferedReader br = 
-				new BufferedReader(new InputStreamReader(conn.getInputStream()));
-		String inputLine;
-		String response = "";
+		Log.d(TAG, "\nSending 'GET' request to URL : " + url);
+		Log.d(TAG, "Response Code : " + responseCode);
+
+		BufferedReader br =
+				new BufferedReader(new InputStreamReader(conn.getInputStream(), "Windows-1252"));
+		String inputLine = "";
+		StringBuilder response = new StringBuilder();
 
 		while ((inputLine = br.readLine()) != null) {
-				response += inputLine;
+				response.append(inputLine);
 		}
 		
 		br.close();
@@ -104,7 +112,8 @@ public class UPVConnection {
 		// Get the response cookies
 		this.cookies = conn.getHeaderFields().get("Set-Cookie");
  
-		return response;
+		// return new String(response.toString().getBytes(),"Windows-1252");
+		return response.toString();
  
 	}
 	 
@@ -139,9 +148,9 @@ public class UPVConnection {
 		dos.close();
  
 		int responseCode = conn.getResponseCode();
-		System.out.println("\nSending 'POST' request to URL : " + url);
-		System.out.println("Post parameters : " + postParams);
-		System.out.println("Response Code : " + responseCode);
+		Log.d(TAG, "\nSending 'POST' request to URL : " + url);
+		Log.d(TAG, "Post parameters : " + postParams);
+		Log.d(TAG, "Response Code : " + responseCode);
  
 		
 		BufferedReader br = 
@@ -162,7 +171,7 @@ public class UPVConnection {
 	private String getFormParams(String html, String username, String password) 
 			throws UnsupportedEncodingException {
 	 
-		System.out.println("Extracting form's data...");
+		Log.d(TAG, "Extracting form's data...");
  
 		Document doc = Jsoup.parse(html);
  
@@ -200,13 +209,13 @@ public class UPVConnection {
 		String h1 = doc.getElementsByTag("h1").text();
 
 		if (h1.equals("Mi UPV")) {
-			String name = doc.getElementsByClass("menuAD").text();
-			name = name.substring(name.indexOf('[')+3, name.lastIndexOf(']')-2);
-			System.out.println("\nSuccesfully logged in: " + name);
+			String aux = doc.getElementsByClass("menuAD").text();
+			this.name = aux.substring(aux.indexOf('[')+3, aux.lastIndexOf(']')-2);
+			Log.d(TAG, "\nSuccesfully logged in: " + name);
 			return 0;
 		}
 		
-		System.out.println("\nError al acceder a la intranet.");
+		Log.d(TAG, "\nError al acceder a la intranet.");
 		return 1;
 		
 	}

@@ -14,8 +14,9 @@
     <string name="buttonText">Empezar</string>
     <string name="progressText">Cargando. Espera, por favor.</string>
 
-    <string name="tab1_title">GENERAL</string>
-    <string name="tab2_title">BUSCAR</string>
+    <string name="tab1_title">STATS</string>
+    <string name="tab2_title">GENERAL</string>
+    <string name="tab3_title">LISTADO</string>
 
     <string name="title_activity_report">ReportActivity</string>
     <string name="subject">Asignatura: </string>
@@ -33,5 +34,8 @@
     <string name="worstMark">Peor nota: </string>
 
     <string name="searchHint">Introduce nombre</string>
+
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingRight="@dimen/fragment_padding"
+    android:paddingLeft="@dimen/fragment_padding"
+    android:paddingTop="@dimen/query_result_vertical_padding"
+    android:paddingBottom="@dimen/query_result_vertical_padding"
+    android:background="@drawable/selector_list_item">
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/query_result_textsize"/>
+
+    <TextView
+        android:id="@+id/mark"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/query_result_textsize"/>
+
+</LinearLayout>
+

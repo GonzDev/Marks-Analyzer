@@ -1,4 +1,6 @@
-package com.gonz.upv.marksanalyzer;
+package com.gonz.common;
+
+import android.util.Log;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -6,51 +8,14 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.io.Serializable;
-import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
 import java.util.HashMap;
 import java.util.LinkedList;
 
 
 @SuppressWarnings("serial")
 public class HTMLDataExtractor implements Serializable{
-	
-	private class Tuple implements Comparable<Tuple> {
-	
-		String name;
-		float mark;
-		
-		public Tuple(String n, float m) {
-			this.name = decode(n);
-			this.mark = m;
-		}
 
-		private String decode(String s) {
-			String res = null;
-			try {
-				res = URLDecoder.decode(s, "ISO-8859-1");
-			} catch (UnsupportedEncodingException e) {
-				e.printStackTrace();
-			}
-			return res;
-		}
-
-		@Override
-		public int compareTo(Tuple o) {
-			Tuple other = (Tuple) o;
-			if(this.mark > other.mark)
-				return 1;
-			else if (this.mark < other.mark)
-				return -1;
-			return 0;
-		}
-		
-		@Override
-		public String toString() {
-			return this.name + " :  " + this.mark;
-		}
-		
-	}
+	private final String TAG = "HTMLDataExtractor";
 
 	private LinkedList<Tuple> sortedList;
 	private HashMap<String, Float> map;
@@ -70,7 +35,7 @@ public class HTMLDataExtractor implements Serializable{
 		this.map = new HashMap<String, Float>();
 		this.html = html;
 
-		System.out.println(html);
+		// System.out.println(html);
 		
 	}
 	
@@ -88,6 +53,7 @@ public class HTMLDataExtractor implements Serializable{
 	public String getLower() {	return Float.toString(sortedList.getLast().mark); 	}
 
 	public HashMap<String,Float> getMap() {	return this.map;	}
+	public LinkedList<Tuple> getSortedList() {	return this.sortedList;	}
 	
 	public void init() {
 	
@@ -106,10 +72,9 @@ public class HTMLDataExtractor implements Serializable{
 		Element body = content.getElementsByTag("tbody").get(0);
 		Elements tuples = body.getElementsByTag("tr");
 		for (Element tuple : tuples) {
-			
 			Elements datas = tuple.getElementsByTag("td");
 			if (!datas.get(1).text().equals("")) {
-				
+
 				Tuple t = new Tuple(datas.get(0).text(),
 						Float.parseFloat(datas.get(1).text().replace(',', '.')));
 				map.put(t.name, t.mark);
@@ -153,23 +118,23 @@ public class HTMLDataExtractor implements Serializable{
 	
 	private void showInfo() {
 
-		System.out.println("ASIGNATURA: " + subject);
-		System.out.println("CONTEXTO: " + context);
-		System.out.println("FECHA DE PUBLICACIÓN: " + date + "\n");
-		System.out.println("ALUMNOS EXAMINADOS: " + total);
-		System.out.println("ALUMNOS CON NOTA EN BLANCO: " + blanks + "\n");
-		System.out.println("MEDIA: " + mean);
-		System.out.println("APROBADOS: " + passed + " ("+ passed/(float)total * 100 + "%)");
-		System.out.println("SUSPENDIDOS: " + (int)(total - passed) + " ("+ (100 - (passed/(float)total * 100)) + "%)\n");
-		System.out.println("NOTA MÁS ALTA: " + sortedList.getFirst().mark + "(" +sortedList.getFirst().name +")");
-		System.out.println("PERCENTIL 75: " + q3 + "\n");
-		System.out.println("MEDIANA: " + median);
-		System.out.println("PERCENTIL 25: " + q1);
-		System.out.println("NOTA MÁS BAJA: " + sortedList.getLast().mark+"\n");
+		Log.d(TAG, "ASIGNATURA: " + subject);
+		Log.d(TAG, "CONTEXTO: " + context);
+		Log.d(TAG, "FECHA DE PUBLICACIÓN: " + date + "\n");
+		Log.d(TAG, "ALUMNOS EXAMINADOS: " + total);
+		Log.d(TAG, "ALUMNOS CON NOTA EN BLANCO: " + blanks + "\n");
+		Log.d(TAG, "MEDIA: " + mean);
+		Log.d(TAG, "APROBADOS: " + passed + " (" + passed / (float) total * 100 + "%)");
+		Log.d(TAG, "SUSPENDIDOS: " + (int) (total - passed) + " (" + (100 - (passed / (float) total * 100)) + "%)\n");
+		Log.d(TAG, "NOTA MÁS ALTA: " + sortedList.getFirst().mark + "(" + sortedList.getFirst().name + ")");
+		Log.d(TAG, "PERCENTIL 75: " + q3 + "\n");
+		Log.d(TAG, "MEDIANA: " + median);
+		Log.d(TAG, "PERCENTIL 25: " + q1);
+		Log.d(TAG, "NOTA MÁS BAJA: " + sortedList.getLast().mark + "\n");
 
-		System.out.println("\n10 MEJORES NOTAS:\n");
+		Log.d(TAG, "\n10 MEJORES NOTAS:\n");
 		for (int i = 0; i < 10; i++)
-			System.out.println(sortedList.get(i).toString());
+			Log.d(TAG, sortedList.get(i).toString());
 		
 	}
 	

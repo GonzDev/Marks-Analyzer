@@ -8,11 +8,16 @@
     <dimen name="main_horizontal_margin">32dp</dimen>
     <dimen name="main_vertical_margin">32dp</dimen>
 
-    <dimen name="title_Textsize">26sp</dimen>
+    <dimen name="title_Textsize">28sp</dimen>
     <dimen name="subtitle_Textsize">18sp</dimen>
     <dimen name="tags_Textsize">20sp</dimen>
     <dimen name="tags_HighDistance">32dp</dimen>
     <dimen name="tags_LowDistance">16dp</dimen>
     <dimen name="tags_PaddingRight">10dp</dimen>
+
+    <dimen name="query_result_vertical_padding">8dp</dimen>
+    <dimen name="query_result_textsize">16sp</dimen>
+
+
 
 </resources>

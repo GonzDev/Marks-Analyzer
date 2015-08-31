@@ -1,26 +1,21 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.gonz.upv.marksanalyzer.ui.fragment.SearchFragment"
-    android:layout_height="match_parent"
     android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.gonz.upv.marksanalyzer.ui.fragment.ChartsFragment"
     android:paddingRight="@dimen/main_horizontal_margin"
     android:paddingLeft="@dimen/main_horizontal_margin"
     android:paddingTop="@dimen/main_vertical_margin"
     android:paddingBottom="@dimen/main_vertical_margin">
 
-    <AutoCompleteTextView
-        android:id="@+id/query"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/searchHint"
-        android:dropDownWidth="match_parent" />
-
-    <TextView
-        android:id="@+id/query_result"
+    <com.androidplot.xy.XYPlot
+        android:id="@+id/plot"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="10sp"
-        android:padding="10dp"/>
+        android:layout_gravity="center"
+        androidPlot.title=""
+        androidPlot.domainLabel=""
+        androidPlot.rangeLabel=""/>
 
 </RelativeLayout>

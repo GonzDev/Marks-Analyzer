@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.gonz.upv.marksanalyzer.MarksAnalyzer;
 import com.gonz.upv.marksanalyzer.R;
@@ -29,6 +30,10 @@ public class MainActivity extends Activity {
         MarksAnalyzer analyzer = (MarksAnalyzer) new MarksAnalyzer(dni, pass, url, this).execute("");
         analyzer.getData();
 
+    }
+
+    public void showErrorToast() {
+        Toast.makeText(getApplicationContext(), "Error al acceder a la intranet.", Toast.LENGTH_SHORT).show();
     }
 
 }

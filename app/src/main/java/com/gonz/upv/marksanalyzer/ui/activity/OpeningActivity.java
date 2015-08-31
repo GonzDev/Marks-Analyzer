@@ -3,6 +3,7 @@ package com.gonz.upv.marksanalyzer.ui.activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
@@ -42,5 +43,12 @@ public class OpeningActivity extends Activity {
             }
         });
 
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                imageView.setImageResource(0);
+                startActivity(new Intent("android.intent.action.MAINACTIVITY"));
+            }
+        });
     }
 }
