@@ -7,10 +7,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingRight="@dimen/main_horizontal_margin"
-        android:paddingLeft="@dimen/main_horizontal_margin"
-        android:paddingTop="@dimen/main_vertical_margin"
-        android:paddingBottom="@dimen/main_vertical_margin"
+        android:padding="@dimen/act_report_padding"
         tools:context=".GeneralFragment" >
 
         <TextView
@@ -21,7 +18,7 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:gravity="center"
-            android:textSize="@dimen/title_Textsize"
+            android:textSize="@dimen/title_text_size"
             android:textColor="@android:color/black"
             android:textStyle="bold" />
 
@@ -31,7 +28,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/tagSubject"
             android:gravity="center"
-            android:textSize="@dimen/subtitle_Textsize"
+            android:textSize="@dimen/subtitle_text_size"
             android:textColor="@android:color/black"/>
 
         <TextView
@@ -40,8 +37,8 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/tagContext"
             android:gravity="center"
-            android:paddingBottom="@dimen/tags_LowDistance"
-            android:textSize="@dimen/subtitle_Textsize"
+            android:paddingBottom="@dimen/tags_padding_bottom"
+            android:textSize="@dimen/subtitle_text_size"
             android:textColor="@android:color/black"/>
 
         <TextView
@@ -49,10 +46,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/tagDate"
-            android:paddingTop="@dimen/tags_HighDistance"
-            android:text="@string/total"
+            android:paddingTop="@dimen/tags_padding_top"
+            android:text="@string/tag_total"
             android:textColor="@android:color/black"
-            android:textSize="@dimen/tags_Textsize"/>
+            android:textSize="@dimen/tags_text_size"/>
 
         <TextView
             android:id="@+id/total"
@@ -61,21 +58,20 @@
             android:layout_toRightOf="@id/tagTotal"
             android:layout_toEndOf="@id/tagTotal"
             android:layout_alignBaseline="@id/tagTotal"
-            android:paddingLeft="@dimen/tags_PaddingRight"
-            android:paddingStart="@dimen/tags_PaddingRight"
+            android:paddingLeft="@dimen/tags_padding_left"
             android:textColor="@android:color/darker_gray"
-            android:textSize="@dimen/tags_Textsize"/>
+            android:textSize="@dimen/tags_text_size"/>
 
         <TextView
             android:id="@+id/tagBlanks"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/tagTotal"
-            android:paddingTop="@dimen/tags_LowDistance"
-            android:paddingBottom="@dimen/tags_LowDistance"
-            android:text="@string/blanks"
+            android:paddingTop="@dimen/tags_padding_top"
+            android:paddingBottom="@dimen/tags_padding_bottom"
+            android:text="@string/tag_blanks"
             android:textColor="@android:color/black"
-            android:textSize="@dimen/tags_Textsize"/>
+            android:textSize="@dimen/tags_text_size"/>
 
         <TextView
             android:id="@+id/blanks"
@@ -84,27 +80,26 @@
             android:layout_toRightOf="@id/tagBlanks"
             android:layout_toEndOf="@id/tagBlanks"
             android:layout_alignBaseline="@id/tagBlanks"
-            android:paddingLeft="@dimen/tags_PaddingRight"
-            android:paddingStart="@dimen/tags_PaddingRight"
+            android:paddingLeft="@dimen/tags_padding_left"
             android:textColor="@android:color/darker_gray"
-            android:textSize="@dimen/tags_Textsize"/>
+            android:textSize="@dimen/tags_text_size"/>
 
         <View
             android:id="@+id/separator1"
             android:layout_width="fill_parent"
             android:layout_height="1dp"
             android:layout_below="@id/tagBlanks"
-            android:background="@android:color/holo_blue_light"/>
+            android:background="@color/color_primary"/>
 
         <TextView
             android:id="@+id/tagPassed"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/separator1"
-            android:paddingTop="@dimen/tags_LowDistance"
-            android:text="@string/passed"
+            android:paddingTop="@dimen/tags_padding_top"
+            android:text="@string/tag_passed"
             android:textColor="@android:color/black"
-            android:textSize="@dimen/tags_Textsize"/>
+            android:textSize="@dimen/tags_text_size"/>
 
         <TextView
             android:id="@+id/passed"
@@ -113,20 +108,19 @@
             android:layout_toRightOf="@id/tagPassed"
             android:layout_toEndOf="@id/tagPassed"
             android:layout_alignBaseline="@id/tagPassed"
-            android:paddingLeft="@dimen/tags_PaddingRight"
-            android:paddingStart="@dimen/tags_PaddingRight"
+            android:paddingLeft="@dimen/tags_padding_left"
             android:textColor="@android:color/darker_gray"
-            android:textSize="@dimen/tags_Textsize"/>
+            android:textSize="@dimen/tags_text_size"/>
 
         <TextView
             android:id="@+id/tagFailed"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/tagPassed"
-            android:paddingTop="@dimen/tags_LowDistance"
-            android:text="@string/failed"
+            android:paddingTop="@dimen/tags_padding_top"
+            android:text="@string/tag_failed"
             android:textColor="@android:color/black"
-            android:textSize="@dimen/tags_Textsize"/>
+            android:textSize="@dimen/tags_text_size"/>
 
         <TextView
             android:id="@+id/failed"
@@ -135,21 +129,20 @@
             android:layout_toRightOf="@id/tagFailed"
             android:layout_toEndOf="@id/tagFailed"
             android:layout_alignBaseline="@id/tagFailed"
-            android:paddingLeft="@dimen/tags_PaddingRight"
-            android:paddingStart="@dimen/tags_PaddingRight"
+            android:paddingLeft="@dimen/tags_padding_left"
             android:textColor="@android:color/darker_gray"
-            android:textSize="@dimen/tags_Textsize"/>
+            android:textSize="@dimen/tags_text_size"/>
 
         <TextView
             android:id="@+id/tagMean"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/tagFailed"
-            android:paddingTop="@dimen/tags_LowDistance"
-            android:paddingBottom="@dimen/tags_LowDistance"
-            android:text="@string/mean"
+            android:paddingTop="@dimen/tags_padding_top"
+            android:paddingBottom="@dimen/tags_padding_bottom"
+            android:text="@string/tag_mean"
             android:textColor="@android:color/black"
-            android:textSize="@dimen/tags_Textsize"/>
+            android:textSize="@dimen/tags_text_size"/>
 
         <TextView
             android:id="@+id/mean"
@@ -158,27 +151,26 @@
             android:layout_toRightOf="@id/tagMean"
             android:layout_toEndOf="@id/tagMean"
             android:layout_alignBaseline="@id/tagMean"
-            android:paddingLeft="@dimen/tags_PaddingRight"
-            android:paddingStart="@dimen/tags_PaddingRight"
+            android:paddingLeft="@dimen/tags_padding_left"
             android:textColor="@android:color/darker_gray"
-            android:textSize="@dimen/tags_Textsize"/>
+            android:textSize="@dimen/tags_text_size"/>
 
         <View
             android:id="@+id/separator2"
             android:layout_width="fill_parent"
             android:layout_height="1dp"
             android:layout_below="@id/tagMean"
-            android:background="@android:color/holo_blue_light"/>
+            android:background="@color/color_primary"/>
 
         <TextView
             android:id="@+id/tagBestMark"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/separator2"
-            android:paddingTop="@dimen/tags_LowDistance"
-            android:text="@string/bestMark"
+            android:paddingTop="@dimen/tags_padding_top"
+            android:text="@string/tag_best_mark"
             android:textColor="@android:color/black"
-            android:textSize="@dimen/tags_Textsize"/>
+            android:textSize="@dimen/tags_text_size"/>
 
         <TextView
             android:id="@+id/bestMark"
@@ -187,20 +179,19 @@
             android:layout_toRightOf="@id/tagBestMark"
             android:layout_toEndOf="@id/tagBestMark"
             android:layout_alignBaseline="@id/tagBestMark"
-            android:paddingLeft="@dimen/tags_PaddingRight"
-            android:paddingStart="@dimen/tags_PaddingRight"
+            android:paddingLeft="@dimen/tags_padding_left"
             android:textColor="@android:color/darker_gray"
-            android:textSize="@dimen/tags_Textsize"/>
+            android:textSize="@dimen/tags_text_size"/>
 
         <TextView
             android:id="@+id/tagWorstMark"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/tagBestMark"
-            android:paddingTop="@dimen/tags_LowDistance"
-            android:text="@string/worstMark"
+            android:paddingTop="@dimen/tags_padding_top"
+            android:text="@string/tag_worst_mark"
             android:textColor="@android:color/black"
-            android:textSize="@dimen/tags_Textsize"/>
+            android:textSize="@dimen/tags_text_size"/>
 
         <TextView
             android:id="@+id/worstMark"
@@ -209,10 +200,9 @@
             android:layout_toRightOf="@id/tagWorstMark"
             android:layout_toEndOf="@id/tagWorstMark"
             android:layout_alignBaseline="@id/tagWorstMark"
-            android:paddingLeft="@dimen/tags_PaddingRight"
-            android:paddingStart="@dimen/tags_PaddingRight"
+            android:paddingLeft="@dimen/tags_padding_left"
             android:textColor="@android:color/darker_gray"
-            android:textSize="@dimen/tags_Textsize"/>
+            android:textSize="@dimen/tags_text_size"/>
 
     </RelativeLayout>
 

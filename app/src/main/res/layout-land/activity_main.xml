@@ -3,10 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingRight="@dimen/main_horizontal_margin"
-    android:paddingLeft="@dimen/main_horizontal_margin"
-    android:paddingTop="@dimen/main_vertical_margin"
-    android:paddingBottom="@dimen/main_vertical_margin"
+    android:paddingRight="@dimen/act_main_padding"
     tools:context=".MainActivity" >
 
 	<EditText 
@@ -18,7 +15,7 @@
 		android:layout_alignStart="@+id/editTextPASS"
       	android:layout_alignRight="@+id/editTextPASS"
       	android:layout_alignEnd="@+id/editTextPASS"	    
-	    android:hint="@string/dni"
+	    android:hint="@string/edittext_dni_hint"
       	android:textColorHighlight="@android:color/black"
       	android:inputType="textPassword"/>
 	
@@ -31,7 +28,7 @@
       	android:layout_alignParentStart="true"
       	android:layout_alignParentRight="true"
       	android:layout_alignParentEnd="true"
-      	android:hint="@string/pass"
+      	android:hint="@string/edittext_pass_hint"
       	android:textColorHighlight="@android:color/black"      	
 	    android:inputType="textPassword"/>
 	
@@ -44,7 +41,7 @@
 		android:layout_alignStart="@+id/editTextPASS"
       	android:layout_alignRight="@+id/editTextPASS"
       	android:layout_alignEnd="@+id/editTextPASS"	   	    
-	    android:hint="@string/url"
+	    android:hint="@string/edittext_url_hint"
       	android:textColorHighlight="@android:color/black"
       	android:inputType="textUri"/>
 	
@@ -55,7 +52,17 @@
       	android:layout_below="@+id/editTextURL"
       	android:layout_centerHorizontal="true"
       	android:layout_marginTop="10dp"
-      	android:text="@string/buttonText"
+      	android:text="@string/button_start_text"
       	android:onClick="start"/>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/editTextDNI"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="25dp"
+        android:indeterminate="true"
+        android:visibility="gone"/>
 
 </RelativeLayout>

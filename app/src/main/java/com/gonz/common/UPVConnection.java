@@ -22,7 +22,7 @@ import javax.net.ssl.HttpsURLConnection;
 
 public class UPVConnection {
 
-	private final String TAG = "UPVConnection";
+	private final String LOG_TAG = "UPVConnection";
 
 	private String dni, clau;
 	private String name;
@@ -95,8 +95,8 @@ public class UPVConnection {
 		
 		int responseCode = conn.getResponseCode();
 		
-		Log.d(TAG, "\nSending 'GET' request to URL : " + url);
-		Log.d(TAG, "Response Code : " + responseCode);
+		Log.d(LOG_TAG, "\nSending 'GET' request to URL : " + url);
+		Log.d(LOG_TAG, "Response Code : " + responseCode);
 
 		BufferedReader br =
 				new BufferedReader(new InputStreamReader(conn.getInputStream(), "Windows-1252"));
@@ -148,9 +148,9 @@ public class UPVConnection {
 		dos.close();
  
 		int responseCode = conn.getResponseCode();
-		Log.d(TAG, "\nSending 'POST' request to URL : " + url);
-		Log.d(TAG, "Post parameters : " + postParams);
-		Log.d(TAG, "Response Code : " + responseCode);
+		Log.d(LOG_TAG, "\nSending 'POST' request to URL : " + url);
+		Log.d(LOG_TAG, "Post parameters : " + postParams);
+		Log.d(LOG_TAG, "Response Code : " + responseCode);
  
 		
 		BufferedReader br = 
@@ -171,7 +171,7 @@ public class UPVConnection {
 	private String getFormParams(String html, String username, String password) 
 			throws UnsupportedEncodingException {
 	 
-		Log.d(TAG, "Extracting form's data...");
+		Log.d(LOG_TAG, "Extracting form's data...");
  
 		Document doc = Jsoup.parse(html);
  
@@ -211,11 +211,11 @@ public class UPVConnection {
 		if (h1.equals("Mi UPV")) {
 			String aux = doc.getElementsByClass("menuAD").text();
 			this.name = aux.substring(aux.indexOf('[')+3, aux.lastIndexOf(']')-2);
-			Log.d(TAG, "\nSuccesfully logged in: " + name);
+			Log.d(LOG_TAG, "\nSuccesfully logged in: " + name);
 			return 0;
 		}
 		
-		Log.d(TAG, "\nError al acceder a la intranet.");
+		Log.d(LOG_TAG, "\nError al acceder a la intranet.");
 		return 1;
 		
 	}

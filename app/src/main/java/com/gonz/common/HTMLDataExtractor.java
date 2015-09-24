@@ -8,6 +8,7 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.io.Serializable;
+import java.text.DecimalFormat;
 import java.util.HashMap;
 import java.util.LinkedList;
 
@@ -21,10 +22,12 @@ public class HTMLDataExtractor implements Serializable{
 	private HashMap<String, Float> map;
 	private String html;
 	
-	String subject, context, date;
-	float mean, median, q1, q3, upper, lower;
-	int blanks, passed, total;
-	
+	private String subject, context, date;
+	private float mean, median, q1, q3, upper, lower;
+	private int blanks, passed, total;
+
+	private DecimalFormat formatter;
+
 	public HTMLDataExtractor(String html) {
 		
 		this.subject = this.context = this.date = "";
@@ -35,39 +38,63 @@ public class HTMLDataExtractor implements Serializable{
 		this.map = new HashMap<String, Float>();
 		this.html = html;
 
+		this.formatter = new DecimalFormat("##.##");
 		// System.out.println(html);
-		
 	}
 	
-	public String getSubject() {	return subject;	}
-	public String getContext() {	return context;	}
-	public String getDate() {	return date;	}
-	public String getTotal() {	return Integer.toString(total+blanks);	}
-	public String getBlanks() {	return Integer.toString(blanks);	}
-	public String getPassed() {	return Integer.toString(passed) +  
-			"  (" + Float.toString(passed/(float)total * 100) + "%)";	}
-	public String getFailed() {	return Integer.toString((int)(total-passed)) +  
-			"  (" + Float.toString(100 - (passed/(float)total * 100)) + "%)";	}
-	public String getMean() {	return Float.toString(mean);	}
-	public String getUpper() {	return Float.toString(sortedList.getFirst().mark);	}
-	public String getLower() {	return Float.toString(sortedList.getLast().mark); 	}
+	public String getSubject() {
+		return subject;
+	}
+	public String getContext() {
+		return context;
+	}
+	public String getDate() {
+		return date;
+	}
+	public String getTotal() {
+		return Integer.toString(total+blanks);
+	}
+	public String getBlanks() {
+		return Integer.toString(blanks);
+	}
+	public String getPassed() {
+		return Integer.toString(passed) +
+				" (" + formatter.format(passed/(float)total * 100) + "%)";
+	}
+	public String getFailed() {
+		return Integer.toString((int)(total-passed)) +
+				" (" + formatter.format(100 - (passed/(float)total * 100)) + "%)";
+	}
+	public String getMean() {
+		return Float.toString(mean);
+	}
+	public String getUpper() {
+		return Float.toString(sortedList.getFirst().mark);
+	}
+	public String getLower() {
+		return Float.toString(sortedList.getLast().mark);
+	}
 
-	public HashMap<String,Float> getMap() {	return this.map;	}
-	public LinkedList<Tuple> getSortedList() {	return this.sortedList;	}
-	
+	public HashMap<String,Float> getMap() {
+		return this.map;
+	}
+	public LinkedList<Tuple> getSortedList() {
+		return this.sortedList;
+	}
+
 	public void init() {
-	
+
 		Document doc = Jsoup.parse(html);
 		Element content = doc.getElementById("contenido");
-		
+
 		// 1. Obtain subject
 		this.subject = content.getElementsByTag("h1").text();
-		
+
 		// 2. Obtain context and date
 		String[] aux = content.getElementsByTag("h2").text().split("     ");
 		this.context = aux[0];
 		this.date = aux[2];
-		
+
 		// 3. Save all data in map and ordered list at same time
 		Element body = content.getElementsByTag("tbody").get(0);
 		Elements tuples = body.getElementsByTag("tr");
@@ -79,10 +106,10 @@ public class HTMLDataExtractor implements Serializable{
 						Float.parseFloat(datas.get(1).text().replace(',', '.')));
 				map.put(t.name, t.mark);
 				addToSortedList(t);
-				
+
 			} else
 				blanks++;
-		
+
 		}
 		
 		// 4. Calculate statistics		

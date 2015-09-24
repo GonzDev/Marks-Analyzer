@@ -8,9 +8,11 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.androidplot.Plot;
+import com.androidplot.ui.SeriesRenderer;
 import com.androidplot.ui.SizeLayoutType;
 import com.androidplot.ui.SizeMetrics;
 import com.androidplot.xy.BarFormatter;
+import com.androidplot.xy.BarRenderer;
 import com.androidplot.xy.BoundaryMode;
 import com.androidplot.xy.PointLabelFormatter;
 import com.androidplot.xy.SimpleXYSeries;
@@ -25,6 +27,36 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class ChartsFragment extends Fragment {
+
+    private class CustomBarFormatter extends BarFormatter {
+
+        public CustomBarFormatter(int fillColor, int borderColor) {
+            super(fillColor, borderColor);
+        }
+
+        @Override
+        public Class<? extends SeriesRenderer> getRendererClass() {
+            return CustomBarRenderer.class;
+        }
+
+        @Override
+        public SeriesRenderer getRendererInstance(XYPlot plot) {
+            return new CustomBarRenderer(plot);
+        }
+
+    }
+
+    private class CustomBarRenderer extends BarRenderer<CustomBarFormatter> {
+
+        public CustomBarRenderer(XYPlot plot) {
+            super(plot);
+        }
+
+        public CustomBarFormatter getFormatter(int index, XYSeries series) {
+            return getFormatter(series);
+        }
+
+    }
 
     // the fragment initialization parameters
     private static final String SORTEDLIST = "sortedList";
@@ -62,11 +94,13 @@ public class ChartsFragment extends Fragment {
     private void setupXYPlot(XYPlot plot) {
 
         // Create points array to plot
-        int[] counter = new int[10];
+        int[] counter = new int[11];
         Number[] array = new Number[counter.length];
         for (int i=0; i<sortedList.size(); i++) {
             int mark = (int) sortedList.get(i).getMark();
-            counter[mark] += 1;
+            if(mark == 10)  counter[11] += 1;
+            else counter[mark] += 1;
+
         }
         for (int i=0; i<counter.length; i++)
             array[i] = counter[i];
@@ -82,7 +116,7 @@ public class ChartsFragment extends Fragment {
         plot.getGraphWidget().setSize(new SizeMetrics(
                 0, SizeLayoutType.FILL,
                 0, SizeLayoutType.FILL));
-        
+
         plot.setBorderStyle(Plot.BorderStyle.NONE, null, null);
         plot.setPlotMargins(0, 0, 0, 0);
         plot.setPlotPadding(0, 0, 0, 0);
@@ -111,11 +145,17 @@ public class ChartsFragment extends Fragment {
         plot.setRangeStep(XYStepMode.INCREMENT_BY_VAL, 5);
         plot.setRangeValueFormat(new DecimalFormat("0"));
 
-        XYSeries serie = new SimpleXYSeries(Arrays.asList(array), SimpleXYSeries.ArrayFormat.Y_VALS_ONLY, "");
+        XYSeries serie = new SimpleXYSeries(Arrays.asList(array),
+                SimpleXYSeries.ArrayFormat.Y_VALS_ONLY, "");
 
-        BarFormatter format = new BarFormatter(Color.RED, Color.BLACK);
-        format.setPointLabelFormatter(new PointLabelFormatter(Color.BLACK));
-        plot.addSeries(serie, format);
+        BarFormatter formatter = new BarFormatter(Color.parseColor("#8B0000"), Color.BLACK);
+        formatter.setPointLabelFormatter(new PointLabelFormatter(Color.BLACK));
+
+        plot.addSeries(serie, formatter);
+
+        BarRenderer renderer = (BarRenderer) plot.getRenderer(BarRenderer.class);
+        renderer.setBarWidth(30);
+
         plot.redraw();
 
     }

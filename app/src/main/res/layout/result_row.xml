@@ -4,10 +4,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:paddingRight="@dimen/fragment_padding"
-    android:paddingLeft="@dimen/fragment_padding"
-    android:paddingTop="@dimen/query_result_vertical_padding"
-    android:paddingBottom="@dimen/query_result_vertical_padding"
+    android:paddingRight="@dimen/act_report_padding"
+    android:paddingLeft="@dimen/act_report_padding"
+    android:paddingTop="@dimen/frag_list_padding_top"
+    android:paddingBottom="@dimen/frag_list_padding_bottom"
     android:background="@drawable/selector_list_item">
 
     <TextView
@@ -15,13 +15,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@android:color/black"
-        android:textSize="@dimen/query_result_textsize"/>
+        android:textSize="@dimen/row_text_size"/>
 
     <TextView
         android:id="@+id/mark"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="@dimen/query_result_textsize"/>
+        android:textSize="@dimen/row_text_size"/>
 
 </LinearLayout>
 

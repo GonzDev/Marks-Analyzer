@@ -4,38 +4,38 @@
     <string name="app_name">Marks Analyzer</string>
     <string name="action_settings">Settings</string>
 
+    <!-- Activity Opening -->
     <string name="title_activity_opening">Activity Opening</string>
-    <string name="init">Initial animation activity</string>
 
+    <!-- Activity Main -->
     <string name="title_activity_main">MainActivity</string>
-    <string name="dni">DNI</string>
-    <string name="pass">Clave</string>
-    <string name="url">Pega la url aquí</string>
-    <string name="buttonText">Empezar</string>
+    <string name="edittext_dni_hint">DNI</string>
+    <string name="edittext_pass_hint">Clave</string>
+    <string name="edittext_url_hint">Pega la url aquí</string>
+    <string name="button_start_text">Empezar</string>
+    <!-- Progress Dialog -->
     <string name="progressText">Cargando. Espera, por favor.</string>
 
+    <!-- Activity Report -->
+    <string name="title_activity_report">ReportActivity</string>
+    <!-- Action Bar-->
+    <string name="search_bar_name_hint">Introduce nombre</string>
     <string name="tab1_title">STATS</string>
     <string name="tab2_title">GENERAL</string>
     <string name="tab3_title">LISTADO</string>
-
-    <string name="title_activity_report">ReportActivity</string>
-    <string name="subject">Asignatura: </string>
-    <string name="context">Contexto: </string>
-    <string name="date">Fecha: </string>
-    <string name="mean">Media: </string>
-    <string name="median">Mediana: </string>
-    <string name="low_percentile">Percentil 25: </string>
-    <string name="hig_percentile">Percentil 75: </string>
-    <string name="blanks">Notas en blanco: </string>
-    <string name="total">Total: </string>
-    <string name="passed">Aprobados: </string>
-    <string name="failed">Suspendidos: </string>
-    <string name="bestMark">Mejor nota: </string>
-    <string name="worstMark">Peor nota: </string>
-
-    <string name="searchHint">Introduce nombre</string>
-
-<!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!-- Fragment General -->
+    <string name="tag_subject">Asignatura: </string>
+    <string name="tag_context">Contexto: </string>
+    <string name="tag_date">Fecha: </string>
+    <string name="tag_mean">Media: </string>
+    <string name="tag_median">Mediana: </string>
+    <string name="tag_low_percentile">Percentil 25: </string>
+    <string name="tag_high_percentile">Percentil 75: </string>
+    <string name="tag_blanks">Notas en blanco: </string>
+    <string name="tag_total">Total: </string>
+    <string name="tag_passed">Aprobados: </string>
+    <string name="tag_failed">Suspendidos: </string>
+    <string name="tag_best_mark">Mejor nota: </string>
+    <string name="tag_worst_mark">Peor nota: </string>
 
 </resources>

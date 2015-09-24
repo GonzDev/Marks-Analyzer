@@ -1,5 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <color name="customholo_color">#8b0000</color>
+
+    <item name="background_color" type="color">#FAF0E6</item>
+
+    <item name="color_primary" type="color">#8B0000</item>
+    <item name="color_secondary" type="color">#D3D3D3</item>
+    <item name="color_text_primary" type="color">#000000</item>
+    <item name="color_text_secondary" type="color">#d48686</item>
+
+    <item name="toolbar_color_primary" type="color">#8B0000</item>
+    <item name="toolbar_text_color_primary" type="color">#FFFFFF</item>
+    <item name="toolbar_text_color_secondary" type="color">#d48686</item>
+    <item name="toolbar_color_accent" type="color">#FFFFFF</item>
 
 </resources>

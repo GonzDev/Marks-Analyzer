@@ -63,9 +63,8 @@ public class ListFragment extends Fragment {
                 pos = i;
                 break;
             }
-
-        list.smoothScrollToPosition(pos);
         list.setItemChecked(pos, true);
+        list.setSelection(pos);
 
     }
 

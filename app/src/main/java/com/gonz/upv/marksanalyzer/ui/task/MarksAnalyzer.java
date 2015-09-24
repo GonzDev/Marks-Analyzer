@@ -1,15 +1,17 @@
-package com.gonz.upv.marksanalyzer;
+package com.gonz.upv.marksanalyzer.ui.task;
 
 import android.app.Activity;
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.gonz.common.HTMLDataExtractor;
 import com.gonz.common.UPVConnection;
+import com.gonz.upv.marksanalyzer.R;
 import com.gonz.upv.marksanalyzer.ui.activity.ReportActivity;
 
 import java.io.BufferedReader;
@@ -21,9 +23,10 @@ public class MarksAnalyzer extends AsyncTask<String, String, Integer> {
 	private HTMLDataExtractor extractor;
 	private String dni, pass, url, name;
 	
-	private ProgressDialog progressDialog;
 	private Activity activity;
 	private boolean succes;
+
+	private ProgressBar pb;
 
 	public MarksAnalyzer(String dni, String pass, String url, Activity activity) {
 		
@@ -32,14 +35,12 @@ public class MarksAnalyzer extends AsyncTask<String, String, Integer> {
 		this.url = url;
 		this.name = "unknown";
 
-		this.succes = false;
-		
 		this.activity = activity;
-		this.progressDialog = new ProgressDialog(activity);
-		this.progressDialog.setMessage(activity.getResources().getText(R.string.progressText));
-		this.progressDialog.setIndeterminate(true);
-		
-	}	
+
+		this.succes = false;
+		this.pb = (ProgressBar) this.activity.findViewById(R.id.progressBar);
+
+	}
 	
 	public HTMLDataExtractor getData() {
 		return this.extractor;
@@ -50,11 +51,10 @@ public class MarksAnalyzer extends AsyncTask<String, String, Integer> {
 		
 		super.onPreExecute();
 		this.conn = new UPVConnection(dni, pass);
-		
-		this.progressDialog.show();
+
 		Button b = (Button) activity.findViewById(R.id.buttonStart);
-		b.setEnabled(false);	
-		
+		b.setEnabled(false);
+		pb.setVisibility(View.VISIBLE);
 	}
 	
 	@Override
@@ -109,8 +109,7 @@ public class MarksAnalyzer extends AsyncTask<String, String, Integer> {
 	protected void onPostExecute(Integer success) {
 
 		super.onPostExecute(success);
-		if (progressDialog.isShowing())
-			progressDialog.dismiss();
+		pb.setVisibility(View.GONE);
 		Button b = (Button) activity.findViewById(R.id.buttonStart);
 		if (!b.isEnabled())
 		b.setEnabled(true);

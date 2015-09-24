@@ -9,9 +9,11 @@
         android:id="@+id/searchTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/searchHint"
+        android:hint="@string/search_bar_name_hint"
         android:dropDownWidth="match_parent"
-        android:textSize="@dimen/query_result_textsize"
-        android:lines="1"/>
+        android:textSize="@dimen/search_bar_text_size"
+        android:lines="1"
+        android:textColor="@android:color/white"
+        android:textColorHint="@color/color_secondary" />
 
 </RelativeLayout>

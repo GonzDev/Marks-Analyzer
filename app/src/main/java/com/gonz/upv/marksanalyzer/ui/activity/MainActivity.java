@@ -6,8 +6,8 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.gonz.upv.marksanalyzer.MarksAnalyzer;
 import com.gonz.upv.marksanalyzer.R;
+import com.gonz.upv.marksanalyzer.ui.task.MarksAnalyzer;
 
 public class MainActivity extends Activity {
 
