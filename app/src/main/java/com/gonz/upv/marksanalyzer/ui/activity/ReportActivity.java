@@ -8,7 +8,6 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
@@ -27,8 +26,11 @@ public class ReportActivity extends AppCompatActivity {
 
 	private boolean searchActive = false;
 	private MenuItem searchAction;
+	private MenuItem settingsAction;
 	private AutoCompleteTextView textEdit = null;
 	private ViewPager viewPager;
+
+	private Menu menu;
 
 	private HashMap<String, Float> map;
 	private ArrayList<Tuple> sortedList;
@@ -78,37 +80,33 @@ public class ReportActivity extends AppCompatActivity {
 		});
 		viewPager.setCurrentItem(1);
 
+		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu items for use in the action bar
-		MenuInflater inflater = getMenuInflater();
-		inflater.inflate(R.menu.menu_report, menu);
-		return super.onCreateOptionsMenu(menu);
-	}
-
-	@Override
-	public boolean onPrepareOptionsMenu(Menu menu) {
+		menu.clear();
+		getMenuInflater().inflate(R.menu.menu_report_actions, menu);
+		getMenuInflater().inflate(R.menu.menu_settings, menu);
 		searchAction = menu.findItem(R.id.action_search);
-		return super.onPrepareOptionsMenu(menu);
+		super.onCreateOptionsMenu(menu);
+		return true;
 	}
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		// Handle presses on the action bar items
 		switch (item.getItemId()) {
+
 			case R.id.action_search:
 				if(searchActive)
 					closeSearch();
 				else
 					openSearch();
 				return true;
-			case R.id.action_settings:
-				return true;
-			default:
-				return super.onOptionsItemSelected(item);
 		}
+		return super.onOptionsItemSelected(item);
 	}
 
 	private void openSearch() {
@@ -118,7 +116,6 @@ public class ReportActivity extends AppCompatActivity {
 		actionBar.setDisplayShowCustomEnabled(true);
 		actionBar.setCustomView(R.layout.search_bar);
 		actionBar.setTitle("");
-
 
 		// Set AutocompleteTextView listener, adapter and hint.
 		textEdit = (AutoCompleteTextView) actionBar.getCustomView()
@@ -137,7 +134,7 @@ public class ReportActivity extends AppCompatActivity {
 		textEdit.requestFocus();
 
 		// Change search icon accordingly.
-		searchAction.setIcon(getResources().getDrawable(R.mipmap.ic_close));
+		searchAction.setIcon(getResources().getDrawable(R.mipmap.ic_action_clear));
 		searchActive = true;
 	}
 
@@ -150,7 +147,7 @@ public class ReportActivity extends AppCompatActivity {
 		clearHighlight();
 
 		// Change search icon accordingly.
-		searchAction.setIcon(getResources().getDrawable(R.mipmap.ic_search));
+		searchAction.setIcon(getResources().getDrawable(R.mipmap.ic_action_search));
 		searchActive = false;
 
 	}
@@ -173,4 +170,5 @@ public class ReportActivity extends AppCompatActivity {
 				break;
 			}
 	}
+
 }

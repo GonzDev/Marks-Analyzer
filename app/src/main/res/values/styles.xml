@@ -25,12 +25,16 @@
     </style>
 
     <style name="ToolbarStyle" parent="AppBaseTheme">
-
-        <item name="colorPrimary">@color/toolbar_color_primary</item>
+        <item name="colorPrimary">@color/color_primary</item>
+        <item name="android:textColorPrimary">@color/toolbar_text_color_primary</item>
+        <item name="android:textColorSecondary">@color/toolbar_text_color_primary</item>
+        <item name="colorAccent">@color/color_primary</item>
+        <item name="android:elevation">@dimen/action_bar_elevation</item>
+    </style>
+    <style name="TabLayoutStyle" parent="ToolbarStyle">
         <item name="android:textColorPrimary">@color/toolbar_text_color_primary</item>
         <item name="android:textColorSecondary">@color/toolbar_text_color_secondary</item>
-        <item name="colorAccent">@color/toolbar_color_accent</item>
-
+        <item name="colorAccent">@color/color_primary</item>
     </style>
 
 </resources>

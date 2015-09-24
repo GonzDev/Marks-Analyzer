@@ -4,11 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.gonz.upv.marksanalyzer.ui.activity.ReportActivity">
 
+    <!-- Search, should appear as action button -->
     <item
         android:id="@+id/action_search"
-        android:icon="@mipmap/ic_search"
-        android:title="Action search"
-        android:orderInCategory="100"
-        app:showAsAction="always" />
+        android:icon="@mipmap/ic_action_search"
+        android:title="@string/action_search"
+        android:orderInCategory="1"
+        app:showAsAction="ifRoom" />
 
 </menu>

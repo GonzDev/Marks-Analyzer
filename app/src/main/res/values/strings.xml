@@ -2,6 +2,7 @@
 <resources>
 
     <string name="app_name">Marks Analyzer</string>
+    <string name="action_search">Search</string>
     <string name="action_settings">Settings</string>
 
     <!-- Activity Opening -->
@@ -37,5 +38,9 @@
     <string name="tag_failed">Suspendidos: </string>
     <string name="tag_best_mark">Mejor nota: </string>
     <string name="tag_worst_mark">Peor nota: </string>
+
+    <!-- Preferences menu -->
+    <string name="prefmenu_about">Acerca de</string>
+    <string name="prefmenu_preferences">Preferencias</string>
 
 </resources>
