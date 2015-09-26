@@ -25,6 +25,7 @@
     <dimen name="frag_list_padding_bottom">8dp</dimen>
     <dimen name="row_text_size">14sp</dimen>
 
-
+    <!-- Menu -->
+    <dimen name="menu_text_size">16sp</dimen>
 
 </resources>

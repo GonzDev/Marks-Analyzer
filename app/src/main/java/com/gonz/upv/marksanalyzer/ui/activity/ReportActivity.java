@@ -1,9 +1,7 @@
 package com.gonz.upv.marksanalyzer.ui.activity;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
@@ -19,12 +17,12 @@ import android.widget.EditText;
 import com.gonz.common.Tuple;
 import com.gonz.upv.marksanalyzer.R;
 import com.gonz.upv.marksanalyzer.ui.adapter.PageAdapter;
+import com.gonz.upv.marksanalyzer.ui.fragment.AboutDialogFragment;
 import com.gonz.upv.marksanalyzer.ui.fragment.ListFragment;
 import com.gonz.upv.marksanalyzer.ui.listener.SearchListener;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.prefs.PreferenceChangeEvent;
 
 public class ReportActivity extends AppCompatActivity {
 
@@ -95,7 +93,7 @@ public class ReportActivity extends AppCompatActivity {
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu items for use in the action bar
 		menu.clear();
-		getMenuInflater().inflate(R.menu.menu_report_actions, menu);
+		getMenuInflater().inflate(R.menu.menu_report, menu);
 		searchAction = menu.findItem(R.id.action_search);
 		super.onCreateOptionsMenu(menu);
 		return true;
@@ -111,6 +109,10 @@ public class ReportActivity extends AppCompatActivity {
 					closeSearch();
 				else
 					openSearch();
+				return true;
+
+			case R.id.action_about:
+				new AboutDialogFragment().show(getFragmentManager(), "ABOUT DIALOG");
 				return true;
 
 			case R.id.action_settings:

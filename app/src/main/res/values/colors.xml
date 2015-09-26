@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <color name="customholo_color">#8b0000</color>
-
     <item name="background_color" type="color">#FAF0E6</item>
 
     <item name="color_primary" type="color">#8B0000</item>

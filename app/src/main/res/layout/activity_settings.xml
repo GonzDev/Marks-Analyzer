@@ -10,7 +10,7 @@
         android:layout_alignParentTop="true"
         android:minHeight="?attr/actionBarSize"
         android:background="?colorPrimary"
-        android:theme="@style/ToolbarStyle"/>
+        android:theme="@style/MyAppTheme.ToolbarStyle"/>
 
     <fragment
         android:id="@+id/settings_fragment"

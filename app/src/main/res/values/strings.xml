@@ -40,15 +40,32 @@
     <string name="tag_worst_mark">Peor nota: </string>
 
     <!-- Preferences menu -->
-    <string name="prefmenu_about">Acerca de</string>
-    <string name="prefmenu_preferences">Preferencias</string>
+    <string name="prefmenu_about">¿Qué es ésto?</string>
+    <string name="prefmenu_preferences">Ajustes</string>
+
+    <!-- About dialog -->
+    <string name="dialog_about_title">¿Qué es ésto?</string>
+    <string name="dialog_about_message">
+        Marks-Analyzer es un aplicación creada por alumnos de la Universidad Politècnica de València
+        de forma desinteresada y con el único objetivo de compartirla con el resto de compañeros.
+        La UPV no ha intervenido en ningún momento de la creación ni publicación de esta aplicación,
+        por lo que <b>carece de carácter oficial</b>.\n\n
+        Las credenciales de acceso serán siempre olvidadas, salvo que se indique lo contrario, en el
+        menú Ajustes -> Privacidad. En cualquier caso, son estrictamente necesarias para acceder a
+        los documentos con las notas. Si no confías en nuestra aplicación, rogamos no la utilices.\n
+        Si tienes cualquier sugerencia, opinión o idea que pueda ayudar a la comunidad, no dudes en
+        ponerte en contacto con el equipo de desarrollo.\n\n
+        Siéntete libre de compartirla con el resto de compañeros.\n\n
+        ¡Nos vemos en el Tony\'s!
+    </string>
+    <string name="dialog_about_button_text">Entendido</string>
 
     <!-- Settings -->
     <string name="pref_action_bar_title">Ajustes</string>
     <string name="pref_category_credentials">PRIVACIDAD</string>
     <string name="pref_remember_credentials">Recordar credenciales</string>
-    <string name="pref_summary_credentials">Si marca esta casilla la aplicación recordará su
-    dni y clave de acceso a la intranet</string>
-
+    <string name="pref_summary_credentials">
+        Si marca esta casilla la aplicación recordará su dni y clave de acceso a la intranet
+    </string>
 
 </resources>
