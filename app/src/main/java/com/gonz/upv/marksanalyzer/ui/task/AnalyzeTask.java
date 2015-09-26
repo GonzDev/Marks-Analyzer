@@ -12,12 +12,13 @@ import android.widget.Toast;
 import com.gonz.common.HTMLDataExtractor;
 import com.gonz.common.UPVConnection;
 import com.gonz.upv.marksanalyzer.R;
+import com.gonz.upv.marksanalyzer.ui.activity.MainActivity;
 import com.gonz.upv.marksanalyzer.ui.activity.ReportActivity;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
-public class MarksAnalyzer extends AsyncTask<String, String, Integer> {
+public class AnalyzeTask extends AsyncTask<String, String, Integer> {
 	
 	private UPVConnection conn;
 	private HTMLDataExtractor extractor;
@@ -28,7 +29,7 @@ public class MarksAnalyzer extends AsyncTask<String, String, Integer> {
 
 	private ProgressBar pb;
 
-	public MarksAnalyzer(String dni, String pass, String url, Activity activity) {
+	public AnalyzeTask(String dni, String pass, String url, Activity activity) {
 		
 		this.dni = dni;
 		this.pass = pass;
@@ -138,6 +139,9 @@ public class MarksAnalyzer extends AsyncTask<String, String, Integer> {
 
 		extras.putSerializable("map", extractor.getMap());
 		extras.putSerializable("sortedList", extractor.getSortedList());
+
+		extras.putString("dni", dni);
+		extras.putString("pass", pass);
 
 		i.putExtras(extras);
 

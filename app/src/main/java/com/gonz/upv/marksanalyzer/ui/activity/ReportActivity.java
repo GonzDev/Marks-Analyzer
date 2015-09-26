@@ -1,6 +1,9 @@
 package com.gonz.upv.marksanalyzer.ui.activity;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
@@ -21,6 +24,7 @@ import com.gonz.upv.marksanalyzer.ui.listener.SearchListener;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.prefs.PreferenceChangeEvent;
 
 public class ReportActivity extends AppCompatActivity {
 
@@ -35,6 +39,8 @@ public class ReportActivity extends AppCompatActivity {
 	private HashMap<String, Float> map;
 	private ArrayList<Tuple> sortedList;
 
+	private String dni, pass;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -44,6 +50,8 @@ public class ReportActivity extends AppCompatActivity {
 		Bundle b = getIntent().getExtras();
 		map = (HashMap<String, Float>) b.getSerializable("map");
 		sortedList = (ArrayList<Tuple>) b.getSerializable("sortedList");
+		dni = b.getString("dni");
+		pass = b.getString("pass");
 
 		// Set toolbar, tabs and ViewPager
 		Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -88,7 +96,6 @@ public class ReportActivity extends AppCompatActivity {
 		// Inflate the menu items for use in the action bar
 		menu.clear();
 		getMenuInflater().inflate(R.menu.menu_report_actions, menu);
-		getMenuInflater().inflate(R.menu.menu_settings, menu);
 		searchAction = menu.findItem(R.id.action_search);
 		super.onCreateOptionsMenu(menu);
 		return true;
@@ -104,6 +111,13 @@ public class ReportActivity extends AppCompatActivity {
 					closeSearch();
 				else
 					openSearch();
+				return true;
+
+			case R.id.action_settings:
+				Bundle b = new Bundle();
+				b.putString("dni", dni);
+				b.putString("pass", pass);
+				startActivity(new Intent(this, SettingsActivity.class).putExtras(b));
 				return true;
 		}
 		return super.onOptionsItemSelected(item);
