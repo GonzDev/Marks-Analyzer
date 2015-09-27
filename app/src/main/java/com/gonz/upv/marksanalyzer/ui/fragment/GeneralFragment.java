@@ -8,7 +8,6 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.gonz.upv.marksanalyzer.R;
-import com.gonz.upv.marksanalyzer.ui.activity.ReportActivity;
 
 public class GeneralFragment extends Fragment {
     @Override

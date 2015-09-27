@@ -1,7 +1,10 @@
 package com.gonz.upv.marksanalyzer.ui.activity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
@@ -23,6 +26,7 @@ import com.gonz.upv.marksanalyzer.ui.listener.SearchListener;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Locale;
 
 public class ReportActivity extends AppCompatActivity {
 
@@ -87,6 +91,7 @@ public class ReportActivity extends AppCompatActivity {
 		viewPager.setCurrentItem(1);
 
 		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+		setLanguaje();
 	}
 
 	@Override
@@ -185,6 +190,19 @@ public class ReportActivity extends AppCompatActivity {
 				lf.clearHighlight();
 				break;
 			}
+	}
+
+	private void setLanguaje() {
+		SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+		if (preferences.contains(MainActivity.KEY_LANGUAJE)) {
+			String localeCode = preferences.getString(MainActivity.KEY_LANGUAJE, "es");
+			Locale locale = new Locale(localeCode);
+			Locale.setDefault(locale);
+			Configuration config = new Configuration();
+			config.locale = locale;
+			getBaseContext().getResources().updateConfiguration(config,
+					getBaseContext().getResources().getDisplayMetrics());
+		}
 	}
 
 }

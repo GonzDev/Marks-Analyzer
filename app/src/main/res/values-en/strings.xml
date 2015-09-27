@@ -60,5 +60,14 @@
     <string name="pref_summary_credentials">
 	    If you select this option the application will remember your id and password to access intranet
     </string>
+    <string name="pref_category_languaje">LANGUAJE</string>
+    <string name="pref_title_languaje">Application language</string>
+    <string name="pref_summary_languaje">Press to choose language</string>
+    <string name="dialog_restart_title">Restart application</string>
+    <string name="dialog_restart_message">
+        To change the language, you must restart the application.
+    </string>
+    <string name="dialog_restart_button_yes">Restart</string>
+    <string name="dialog_restart_button_no">Back</string>
 
 </resources>

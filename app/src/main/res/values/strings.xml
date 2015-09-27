@@ -66,5 +66,14 @@
     <string name="pref_summary_credentials">
         Si marca esta casilla la aplicación recordará su dni y clave de acceso a la intranet
     </string>
+    <string name="pref_category_languaje">IDIOMA</string>
+    <string name="pref_title_languaje">Idioma de la aplicación</string>
+    <string name="pref_summary_languaje">Pulse para elegir idioma</string>
+    <string name="dialog_restart_title">Reiniciar aplicación</string>
+    <string name="dialog_restart_message">
+        Para cambiar el idioma es necesario reiniciar la aplicación.
+    </string>
+    <string name="dialog_restart_button_yes">Reiniciar</string>
+    <string name="dialog_restart_button_no">Cancelar</string>
 
 </resources>

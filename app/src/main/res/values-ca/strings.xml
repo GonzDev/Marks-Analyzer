@@ -60,5 +60,14 @@
     <string name="pref_summary_credentials">
         Si marca esta opció l\'aplicació recordarà el seu dni i la seua clau d\'accés a la intranet
     </string>
+    <string name="pref_category_languaje">IDIOMA</string>
+    <string name="pref_title_languaje">Idioma de la aplicació</string>
+    <string name="pref_summary_languaje">Polsa per a triar l\'idioma</string>
+    <string name="dialog_restart_title">Reiniciar l\'aplicació</string>
+    <string name="dialog_restart_message">
+        Per canviar l\'idioma cal reiniciar l\'aplicació.
+    </string>
+    <string name="dialog_restart_button_yes">Reiniciar</string>
+    <string name="dialog_restart_button_no">Cancel.lar</string>
 
 </resources>

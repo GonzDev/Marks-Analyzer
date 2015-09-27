@@ -1,12 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
     <PreferenceCategory
-        android:title="@string/pref_category_credentials"
-        android:key="pref_credentials">
+        android:title="@string/pref_category_credentials">
         <CheckBoxPreference
             android:key="pref_remember_credentials"
             android:title="@string/pref_remember_credentials"
             android:summary="@string/pref_summary_credentials"
             android:defaultValue="false" />
     </PreferenceCategory>
+    <PreferenceCategory
+        android:title="@string/pref_category_languaje">
+        <ListPreference
+            android:key="pref_languaje"
+            android:title="@string/pref_title_languaje"
+            android:summary="@string/pref_summary_languaje"
+            android:entries="@array/languajes"
+            android:entryValues="@array/languaje_codes"/>
+       </PreferenceCategory>
 </PreferenceScreen>
