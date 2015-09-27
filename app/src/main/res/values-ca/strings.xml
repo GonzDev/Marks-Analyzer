@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="action_search">Buscar</string>
+    <string name="action_settings">Ajustos</string>
+
+    <!-- Activity Main -->
+    <string name="edittext_dni_hint">DNI</string>
+    <string name="edittext_pass_hint">Clau</string>
+    <string name="edittext_url_hint">Pega la url ací</string>
+    <string name="button_start_text">Començar</string>
+    <!-- Progress Dialog -->
+    <string name="progressText">Carregant. Per favor, espere.</string>
+
+    <!-- Activity Report -->
+    <!-- Action Bar-->
+    <string name="search_bar_name_hint">Introduïsca un nom</string>
+    <string name="tab1_title">STATS</string>
+    <string name="tab2_title">GENERAL</string>
+    <string name="tab3_title">LLISTAT</string>
+    <!-- Fragment General -->
+    <string name="tag_subject">Assignatura: </string>
+    <string name="tag_context">Context: </string>
+    <string name="tag_date">Data: </string>
+    <string name="tag_mean">Nota mitja: </string>
+    <string name="tag_median">Mitjana: </string>
+    <string name="tag_low_percentile">Percentil 25: </string>
+    <string name="tag_high_percentile">Percentil 75: </string>
+    <string name="tag_blanks">Notes en blanc: </string>
+    <string name="tag_total">Total: </string>
+    <string name="tag_passed">Aprovats: </string>
+    <string name="tag_failed">Suspesos: </string>
+    <string name="tag_best_mark">Millor nota: </string>
+    <string name="tag_worst_mark">Pitjor nota: </string>
+
+    <!-- Preferences menu -->
+    <string name="prefmenu_about">¿Qué és açò?</string>
+    <string name="prefmenu_preferences">Ajustos</string>
+
+    <!-- About dialog -->
+    <string name="dialog_about_title">¿Qué és açò?</string>
+    <string name="dialog_about_message">
+        Marks-Analyzer és una aplicació creada per alumnes de la Universitat Politècnica de València
+        de forma desinteressada i amb l\'únic objectiu de compartir-la amb la resta de companys.
+        La UPV no ha intervingut en cap moment de la creació ni publicació de esta aplicació, pel
+        que <b>no té caràcter oficial</b>.\n\n
+        Els credencials d\'accés seran sempre oblidats, a menys que s\'indique el contrari en el menú
+        Ajustos -> Privacitat. En qualsevol cas, són estrictament necessàries per a accedir als
+        documents amb les notes. Si no confies en la nostra aplicació, te demanem que no la utilitzes.
+        Si tens qualsevol suggeriment, opinió o idea que puga ajudar a la comunitat, no dubtes a
+        posar-te en contacte amb l\'equip de desenvolupament.\n\n
+        Si t\'ha agradat, compartix-la amb la resta de companys. Moltes gràcies.
+    </string>
+    <string name="dialog_about_button_text">D\'acord</string>
+
+    <!-- Settings -->
+    <string name="pref_action_bar_title">Ajustos</string>
+    <string name="pref_category_credentials">PRIVACITAT</string>
+    <string name="pref_remember_credentials">Recordar els credencials</string>
+    <string name="pref_summary_credentials">
+        Si marca esta opció l\'aplicació recordarà el seu dni i la seua clau d\'accés a la intranet
+    </string>
+
+</resources>

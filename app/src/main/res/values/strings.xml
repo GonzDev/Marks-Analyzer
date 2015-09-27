@@ -2,16 +2,16 @@
 <resources>
 
     <string name="app_name">Marks Analyzer</string>
-    <string name="action_search">Search</string>
-    <string name="action_settings">Settings</string>
+    <string name="action_search">Buscar</string>
+    <string name="action_settings">Ajustes</string>
 
     <!-- Activity Opening -->
-    <string name="title_activity_opening">Activity Opening</string>
+    <string name="title_activity_opening">OpeningActivity</string>
 
     <!-- Activity Main -->
     <string name="title_activity_main">MainActivity</string>
     <string name="edittext_dni_hint">DNI</string>
-    <string name="edittext_pass_hint">Clave</string>
+    <string name="edittext_pass_hint">PIN</string>
     <string name="edittext_url_hint">Pega la url aquí</string>
     <string name="button_start_text">Empezar</string>
     <!-- Progress Dialog -->
@@ -21,7 +21,7 @@
     <string name="title_activity_report">ReportActivity</string>
     <!-- Action Bar-->
     <string name="search_bar_name_hint">Introduce nombre</string>
-    <string name="tab1_title">STATS</string>
+    <string name="tab1_title">HISTOGRAMA</string>
     <string name="tab2_title">GENERAL</string>
     <string name="tab3_title">LISTADO</string>
     <!-- Fragment General -->
@@ -46,17 +46,16 @@
     <!-- About dialog -->
     <string name="dialog_about_title">¿Qué es ésto?</string>
     <string name="dialog_about_message">
-        Marks-Analyzer es un aplicación creada por alumnos de la Universidad Politècnica de València
+        Marks-Analyzer es una aplicación creada por alumnos de la Universidad Politècnica de València
         de forma desinteresada y con el único objetivo de compartirla con el resto de compañeros.
         La UPV no ha intervenido en ningún momento de la creación ni publicación de esta aplicación,
         por lo que <b>carece de carácter oficial</b>.\n\n
-        Las credenciales de acceso serán siempre olvidadas, salvo que se indique lo contrario, en el
+        Las credenciales de acceso serán siempre olvidadas, salvo que se indique lo contrario en el
         menú Ajustes -> Privacidad. En cualquier caso, son estrictamente necesarias para acceder a
         los documentos con las notas. Si no confías en nuestra aplicación, rogamos no la utilices.\n
         Si tienes cualquier sugerencia, opinión o idea que pueda ayudar a la comunidad, no dudes en
         ponerte en contacto con el equipo de desarrollo.\n\n
-        Siéntete libre de compartirla con el resto de compañeros.\n\n
-        ¡Nos vemos en el Tony\'s!
+        Compártela con el resto de compañeros.\n\n
     </string>
     <string name="dialog_about_button_text">Entendido</string>
 

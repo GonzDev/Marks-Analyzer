@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="action_search">Search</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- Activity Main -->
+    <string name="edittext_dni_hint">DNI</string>
+    <string name="edittext_pass_hint">PIN</string>
+    <string name="edittext_url_hint">Paste the url here</string>
+    <string name="button_start_text">Start</string>
+    <!-- Progress Dialog -->
+    <string name="progressText">Loading. Please wait.</string>
+
+    <!-- Activity Report -->
+    <!-- Action Bar-->
+    <string name="search_bar_name_hint">Introduce name</string>
+    <string name="tab1_title">STATS</string>
+    <string name="tab2_title">GENERAL</string>
+    <string name="tab3_title">LIST</string>
+    <!-- Fragment General -->
+    <string name="tag_subject">Subject: </string>
+    <string name="tag_context">Context: </string>
+    <string name="tag_date">Date: </string>
+    <string name="tag_mean">Mean: </string>
+    <string name="tag_median">Median: </string>
+    <string name="tag_low_percentile">Percentile 25: </string>
+    <string name="tag_high_percentile">Percentile 75: </string>
+    <string name="tag_blanks">Blank marks: </string>
+    <string name="tag_total">Total: </string>
+    <string name="tag_passed">Passed: </string>
+    <string name="tag_failed">Failed: </string>
+    <string name="tag_best_mark">Best mark: </string>
+    <string name="tag_worst_mark">Worst mark: </string>
+
+    <!-- Preferences menu -->
+    <string name="prefmenu_about">About it</string>
+    <string name="prefmenu_preferences">Settings</string>
+
+    <!-- About dialog -->
+    <string name="dialog_about_title">About it</string>
+    <string name="dialog_about_message">
+        Marks-Analyzer is an application created by students of Universitat Politècnica de València.
+        It has been created with the unique objective of being shared with the rest of the students,
+        in a non-interested way. UPV has not participated in any moment neither in the creation neither
+        in the publication of this app, so <b>it is not an official app</b>.\n\n
+        The login data will not be remembered unless you allow it, accesing menu Settings -> Privacy.
+        Nevertheless, they are strictly necessary to access the documents which includes the marks.
+        If you don\'t trust our application, please don\'t use it.\n\n
+        If you have any sugerence, opinion or idea that could help our community, do not doubt to
+        contact the development team.\n\n
+        Feel free to share it with the rest of your mates.
+    </string>
+    <string name="dialog_about_button_text">I agree</string>
+
+    <!-- Settings -->
+    <string name="pref_action_bar_title">Settings</string>
+    <string name="pref_category_credentials">PRIVACY</string>
+    <string name="pref_remember_credentials">Remember login data</string>
+    <string name="pref_summary_credentials">
+	    If you select this option the application will remember your id and password to access intranet
+    </string>
+
+</resources>

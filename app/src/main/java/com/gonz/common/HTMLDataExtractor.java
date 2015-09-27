@@ -34,8 +34,8 @@ public class HTMLDataExtractor implements Serializable{
 		this.mean = this.median = this.q1 = this.q3 = this.upper = this.lower = 0.0f;
 		this.blanks = this.passed = this.total = 0;
 		
-		this.sortedList = new LinkedList<Tuple>();
-		this.map = new HashMap<String, Float>();
+		this.sortedList = new LinkedList<>();
+		this.map = new HashMap<>();
 		this.html = html;
 
 		this.formatter = new DecimalFormat("##.##");
@@ -62,11 +62,11 @@ public class HTMLDataExtractor implements Serializable{
 				" (" + formatter.format(passed/(float)total * 100) + "%)";
 	}
 	public String getFailed() {
-		return Integer.toString((int)(total-passed)) +
+		return Integer.toString((total-passed)) +
 				" (" + formatter.format(100 - (passed/(float)total * 100)) + "%)";
 	}
 	public String getMean() {
-		return Float.toString(mean);
+		return Double.toString(Math.rint(mean*100)/100);
 	}
 	public String getUpper() {
 		return Float.toString(sortedList.getFirst().mark);
@@ -152,7 +152,7 @@ public class HTMLDataExtractor implements Serializable{
 		Log.d(TAG, "ALUMNOS CON NOTA EN BLANCO: " + blanks + "\n");
 		Log.d(TAG, "MEDIA: " + mean);
 		Log.d(TAG, "APROBADOS: " + passed + " (" + passed / (float) total * 100 + "%)");
-		Log.d(TAG, "SUSPENDIDOS: " + (int) (total - passed) + " (" + (100 - (passed / (float) total * 100)) + "%)\n");
+		Log.d(TAG, "SUSPENDIDOS: " + (total - passed) + " (" + (100 - (passed / (float) total * 100)) + "%)\n");
 		Log.d(TAG, "NOTA MÁS ALTA: " + sortedList.getFirst().mark + "(" + sortedList.getFirst().name + ")");
 		Log.d(TAG, "PERCENTIL 75: " + q3 + "\n");
 		Log.d(TAG, "MEDIANA: " + median);
